@@ -1,18 +1,8 @@
 # ninja log v5
-1	112	7506574110623421	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-10	133	7506574110835708	CMakeFiles/bitFlags.dir/bit_flags.c.obj	6422a0f648e46e3f
-133	261	7506574112086515	bitFlags.exe	8a4029b939a70df
-2	101	7506574366750913	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-101	221	7506574367907636	bitFlags.exe	8a4029b939a70df
-2	77	7506574494813341	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-77	169	7506574495691483	bitFlags.exe	8a4029b939a70df
-2	103	7506577231548267	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-9	110	7506577231630131	CMakeFiles/bitFlags.dir/bit_flags.c.obj	6422a0f648e46e3f
-111	214	7506577232614525	bitFlags.exe	8a4029b939a70df
-14	146	7506583853838866	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-3	98	7506583958357582	CMakeFiles/bitFlags.dir/bit_flags.c.obj	6422a0f648e46e3f
-99	277	7506583960079656	bitFlags.exe	8a4029b939a70df
-3	104	7506584074966574	CMakeFiles/bitFlags.dir/bit_flags.c.obj	6422a0f648e46e3f
-105	225	7506584076118918	bitFlags.exe	8a4029b939a70df
-3	108	7506584252592449	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
-110	230	7506584253764980	bitFlags.exe	8a4029b939a70df
+5	113	7509248145882578	CMakeFiles/bitFlags.dir/main.c.obj	7c4e326fc89037e4
+2	120	7509242089093655	CMakeFiles/bitFlags.dir/bit_flags.c.obj	6422a0f648e46e3f
+114	259	7509248147288686	bitFlags.exe	8a4029b939a70df
+2	165	7509251430497238	build.ninja	d8b17e56bda483dc
+0	200	7509251274580193	CMakeFiles/main.c.dir/bit_flags.c.obj	538f97e8dfc95c18
+2	84	7509251457374234	CMakeFiles/main.c.dir/main.c.obj	a12b53df7b1de92b
+85	183	7509251458307594	main.c.exe	ad372ff7c088c551

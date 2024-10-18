@@ -3,17 +3,27 @@
 #include "bit_flags.h"
 
 
-int main() {
+
+
+int main (int argc, char **argv) {
 
     BIT_FLAGS new_bits;
 
     new_bits = bit_flags_init_number_of_bits(10);
 
-    int num_bytes = (10+7) / 8;
+    bit_flags_set_flag(new_bits,2);
+    bit_flags_unset_flag(new_bits,2);
 
-    printf("%d\n", num_bytes);
+    print_bits(&new_bits);
+
+    bit_flags_destroy(new_bits);
+    printf("%d\n",bit_flags_get_capacity(new_bits));
 
 
-    printf("Hello, World!\n");
+
+
+
+
+
     return 0;
 }

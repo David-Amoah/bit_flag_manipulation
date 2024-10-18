@@ -41,43 +41,43 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/unoda/CLionProjects/bitFlags/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target bitFlags
+# Object build statements for EXECUTABLE target main.c
 
 
 #############################################
-# Order-only phony target for bitFlags
+# Order-only phony target for main.c
 
-build cmake_object_order_depends_target_bitFlags: phony || CMakeFiles/bitFlags.dir
+build cmake_object_order_depends_target_main.c: phony || CMakeFiles/main.c.dir
 
-build CMakeFiles/bitFlags.dir/main.c.obj: C_COMPILER__bitFlags_unscanned_Debug C$:/Users/unoda/CLionProjects/bitFlags/main.c || cmake_object_order_depends_target_bitFlags
-  DEP_FILE = CMakeFiles\bitFlags.dir\main.c.obj.d
+build CMakeFiles/main.c.dir/bit_flags.c.obj: C_COMPILER__main.2ec_unscanned_Debug C$:/Users/unoda/CLionProjects/bitFlags/bit_flags.c || cmake_object_order_depends_target_main.c
+  DEP_FILE = CMakeFiles\main.c.dir\bit_flags.c.obj.d
   FLAGS = -g -std=gnu99 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\bitFlags.dir
-  OBJECT_FILE_DIR = CMakeFiles\bitFlags.dir
+  OBJECT_DIR = CMakeFiles\main.c.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.c.dir
 
-build CMakeFiles/bitFlags.dir/bit_flags.c.obj: C_COMPILER__bitFlags_unscanned_Debug C$:/Users/unoda/CLionProjects/bitFlags/bit_flags.c || cmake_object_order_depends_target_bitFlags
-  DEP_FILE = CMakeFiles\bitFlags.dir\bit_flags.c.obj.d
+build CMakeFiles/main.c.dir/main.c.obj: C_COMPILER__main.2ec_unscanned_Debug C$:/Users/unoda/CLionProjects/bitFlags/main.c || cmake_object_order_depends_target_main.c
+  DEP_FILE = CMakeFiles\main.c.dir\main.c.obj.d
   FLAGS = -g -std=gnu99 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\bitFlags.dir
-  OBJECT_FILE_DIR = CMakeFiles\bitFlags.dir
+  OBJECT_DIR = CMakeFiles\main.c.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.c.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target bitFlags
+# Link build statements for EXECUTABLE target main.c
 
 
 #############################################
-# Link the executable bitFlags.exe
+# Link the executable main.c.exe
 
-build bitFlags.exe: C_EXECUTABLE_LINKER__bitFlags_Debug CMakeFiles/bitFlags.dir/main.c.obj CMakeFiles/bitFlags.dir/bit_flags.c.obj
+build main.c.exe: C_EXECUTABLE_LINKER__main.2ec_Debug CMakeFiles/main.c.dir/bit_flags.c.obj CMakeFiles/main.c.dir/main.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\bitFlags.dir
+  OBJECT_DIR = CMakeFiles\main.c.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = bitFlags.exe
-  TARGET_IMPLIB = libbitFlags.dll.a
-  TARGET_PDB = bitFlags.exe.dbg
+  TARGET_FILE = main.c.exe
+  TARGET_IMPLIB = libmain.c.dll.a
+  TARGET_PDB = main.c.exe.dbg
 
 
 #############################################
@@ -105,7 +105,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build bitFlags: phony bitFlags.exe
+build main.c: phony main.c.exe
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +115,7 @@ build bitFlags: phony bitFlags.exe
 #############################################
 # Folder: C:/Users/unoda/CLionProjects/bitFlags/cmake-build-debug
 
-build all: phony bitFlags.exe
+build all: phony main.c.exe
 
 # =============================================================================
 # Built-in targets

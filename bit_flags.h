@@ -46,4 +46,7 @@ int bit_flags_get_capacity(BIT_FLAGS hBit_flags);
 //Precondition: phBit_flags is the address of a handle to a valid Bit_flags object.
 //Post condition: The memory for the object referred to by the handle is free'd and the handle is set to NULL.
 void bit_flags_destroy(BIT_FLAGS* phBit_flags);
+
+
+void print_bits(BIT_FLAGS *pbits);
 #endif
