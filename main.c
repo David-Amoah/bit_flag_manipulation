@@ -17,7 +17,7 @@ int main (int argc, char **argv) {
     print_bits(&new_bits);
 
     bit_flags_destroy(new_bits);
-    printf("%d\n",bit_flags_get_capacity(new_bits));
+    printf("%d\n",bit_flags_get_size(new_bits));
 
 
 

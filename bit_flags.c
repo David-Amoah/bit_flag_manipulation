@@ -140,13 +140,15 @@ int bit_flags_get_capacity(BIT_FLAGS hBit_flags) {
 }
 
 void bit_flags_destroy(BIT_FLAGS *phBit_flags) {
-    if (phBit_flags != NULL && *phBit_flags != NULL) {
-        Bit_flags* pBit_flags = *phBit_flags;
+    if (phBit_flags != NULL ) {
+        Bit_flags* pBit_flags = (Bit_flags*)phBit_flags;
 
-        free(pBit_flags->data);
+        if (pBit_flags->data != NULL) {
+            free(pBit_flags->data);
+        }
+
         free(pBit_flags);
 
-        *phBit_flags = NULL;
     }
 
 }
