@@ -48,5 +48,5 @@ int bit_flags_get_capacity(BIT_FLAGS hBit_flags);
 void bit_flags_destroy(BIT_FLAGS* phBit_flags);
 
 
-void print_bits(BIT_FLAGS *pbits);
+//void print_bits(BIT_FLAGS *pbits);
 #endif
