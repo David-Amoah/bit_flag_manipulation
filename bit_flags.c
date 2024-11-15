@@ -22,18 +22,23 @@ BIT_FLAGS bit_flags_init_number_of_bits(int number_of_bits) {
 
     Bit_flags* p_bits = (Bit_flags*)malloc(sizeof(Bit_flags));
 
-    if(p_bits != NULL) {
-        p_bits->size = number_of_bits;
-        p_bits->capacity = (int)sizeof(int) * 8;
-        p_bits->data = (int*)malloc(sizeof(int) * p_bits->capacity);
-        if (p_bits->data == NULL) {
-            free(p_bits);
-            return NULL;
-        }
+    if (p_bits == NULL) {
+        printf("Failed to allocate space");
+        return NULL;
+    }
+    p_bits->size = number_of_bits;
+    p_bits->capacity = (int)sizeof(int) * 8;
+
+    int num_integers = (number_of_bits + p_bits->capacity - 1) / p_bits->capacity;
+
+    p_bits->data = (int*)malloc(sizeof(int) * p_bits->capacity);
+    if (p_bits->data == NULL) {
+        free(p_bits);
+        return NULL;
     }
 
     //sets bits to 0;
-    for (int i = 0; i < number_of_bits; i++) {
+    for (int i = 0; i < num_integers; i++) {
         p_bits->data[i] = 0;
     }
 
@@ -50,14 +55,14 @@ Status bit_flags_set_flag(BIT_FLAGS hBit_flags, int flag_position) {
     }
 
     if (flag_position >= pBit_flags->capacity) {
-        int new_capacity = flag_position + 1;
+        int new_capacity = flag_position * 2;
         int number_of_ints = (new_capacity + (sizeof(int) * 8) - 1) / (sizeof(int) * 8);
 
 
         int* temp = (int*)malloc(number_of_ints * sizeof(int));
 
         if (temp == NULL) {
-            printf("Failed");
+            printf("Failed to allocate memory");
             return FAILURE;
         }
 
@@ -136,14 +141,15 @@ int bit_flags_get_capacity(BIT_FLAGS hBit_flags) {
 void bit_flags_destroy(BIT_FLAGS *phBit_flags) {
     if (phBit_flags != NULL ) {
         Bit_flags* pBit_flags = (Bit_flags*)*phBit_flags;
-
         if (pBit_flags->data != NULL) {
             free(pBit_flags->data);
         }
-        free(pBit_flags);
 
-        *phBit_flags = NULL;
+        free(pBit_flags);
     }
+
+    *phBit_flags = NULL;
+
 }
 
 void print_bits(BIT_FLAGS *pbits) {
