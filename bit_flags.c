@@ -27,9 +27,12 @@ BIT_FLAGS bit_flags_init_number_of_bits(int number_of_bits) {
         return NULL;
     }
     p_bits->size = number_of_bits;
-    p_bits->capacity = (int)sizeof(int) * 8;
 
-    int num_integers = (number_of_bits + p_bits->capacity - 1) / p_bits->capacity;
+    int bits_per_int = sizeof(int) * 8;
+    int num_integers = (number_of_bits + bits_per_int - 1) / bits_per_int;
+
+    p_bits->capacity = num_integers;
+
 
     p_bits->data = (int*)malloc(sizeof(int) * p_bits->capacity);
     if (p_bits->data == NULL) {
@@ -50,39 +53,40 @@ BIT_FLAGS bit_flags_init_number_of_bits(int number_of_bits) {
 Status bit_flags_set_flag(BIT_FLAGS hBit_flags, int flag_position) {
     Bit_flags* pBit_flags = (Bit_flags*)hBit_flags;
 
-    if (flag_position < 0) {
+    if (pBit_flags == NULL || flag_position < 0) {
         return FAILURE;
     }
 
-    if (flag_position >= pBit_flags->capacity) {
-        int new_capacity = flag_position * 2;
-        int number_of_ints = (new_capacity + (sizeof(int) * 8) - 1) / (sizeof(int) * 8);
+    int bits_per_int = sizeof(int) * 8;
+    int needed_ints = (flag_position + bits_per_int) / bits_per_int;
 
 
-        int* temp = (int*)malloc(number_of_ints * sizeof(int));
+    if (flag_position >= pBit_flags->capacity * bits_per_int) {
+
+        int* temp = (int*)malloc(needed_ints * sizeof(int));
 
         if (temp == NULL) {
             printf("Failed to allocate memory");
             return FAILURE;
         }
 
-        int old_num_ints = (pBit_flags->capacity + (sizeof(int) * 8) - 1) / (sizeof(int) * 8);
+        int old_num_ints = (pBit_flags->capacity * bits_per_int + bits_per_int - 1) / bits_per_int;
         for (int i = 0; i < old_num_ints; i++) {
             temp[i] = pBit_flags->data[i];
         }
 
-        for (int i = old_num_ints; i < number_of_ints; i++) {
+        for (int i = old_num_ints; i < needed_ints; i++) {
             temp[i] = 0;
         }
 
         free(pBit_flags->data);
         pBit_flags->data = temp;
-        pBit_flags->capacity = new_capacity;
+        pBit_flags->capacity = needed_ints;
     }
 
 
-    int index = flag_position / (sizeof(int) * 8);
-    int bit_offset = flag_position % (sizeof(int) * 8);
+    int index = flag_position / bits_per_int;
+    int bit_offset = flag_position % bits_per_int;
 
 
     pBit_flags->data[index] |= (1 << bit_offset);
